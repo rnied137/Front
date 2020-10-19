@@ -1,0 +1,60 @@
+
+
+
+
+.NavbarContainer {
+    background-color: black;
+    width:100vw;
+}
+
+ul {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:90%;
+   
+}
+
+.mediaLinks {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.centerLinks {
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    width: 25%;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+li {
+    list-style: none;
+
+}
+
+
+li a {
+
+text-decoration: none;
+color: white;
+
+
+}
+
+
+.btn-area {
+    border-radius: 5px;
+    border:  1px solid 006c87;
+    padding: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background-color: #006c87;
+}
