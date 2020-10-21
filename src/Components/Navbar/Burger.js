@@ -7,12 +7,13 @@ const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
   position: fixed;
-  top: 15px;
+  top: 8px;
   right: 20px;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-flow: column nowrap;
   z-index: 20;
   display: none;
+
 
   @media (max-width: 768px) {
     display: flex;
@@ -21,10 +22,10 @@ const StyledBurger = styled.div`
   }
 
   div {
-    width: 2.5rem;
+    width: 2.2rem;
     height: 0.25rem;
-    background-color: ${({ open }) => (open ? "gray" : "white")};
-    border-radius: 10px;
+    background-color: ${({ open }) => (open ? "white" : "white")};
+    border-radius: 3px;
     transform-origin: 1px;
     transform: all 0.7s linear;
 
@@ -32,7 +33,7 @@ const StyledBurger = styled.div`
       transform: ${({ open }) => (open ? "rotate(45deg)" : "rotate(0)")};
     }
 
-    &:nth-child(2) {
+    &:nth-child(2) { //hide element middle bar of burger line
       transform: ${({ open }) => (open ? "translateX(100%)" : "translateX(0)")};
       opacity: ${({ open }) => (open ? "0" : "1")};
     }
