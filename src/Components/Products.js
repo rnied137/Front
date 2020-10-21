@@ -1,17 +1,26 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const colors = ["blue", "pink", "teal", "red"];
+const colors = ["blue", "pink", "teal", "red", "#ff6584", "#6C63FF"];
 
 export const Item = styled.div`
   display: flex;
   justify-content: center;
   padding: 0.5rem;
-  color: red;
-  border: 5px solid purple;
-  ${({ color = colors[Math.floor(Math.random() * (colors.length - 1)) + 1] }) =>
+
+  ${({ color = colors[Math.floor(Math.random() * (colors.length - 0)) + 0] }) =>
     css`
       background-color: ${color};
+      border: 5px solid ${color};
+      border-radius: 10px;
+      color: ${color};
+
+    `}
+    ${({ fontColor = colors[Math.floor(Math.random() * (colors.length - 0)) + 0] }) =>
+    css`
+     
+      color: ${fontColor};
+
     `}
 `;
 
@@ -33,8 +42,8 @@ const Products = () => {
         <Item>
           <p>2</p>
         </Item>
-        <Item></Item>
-        <Item></Item>
+        <Item>23</Item>
+        <Item>76</Item>
         <Item>
           <p>3</p>
         </Item>
@@ -43,9 +52,9 @@ const Products = () => {
         <Item>
           <p>1</p>
         </Item>
-        <Item></Item>
-        <Item></Item>
-        <Item></Item>
+        <Item>2</Item>
+        <Item>3</Item>
+        <Item>5</Item>
         <Item>
           <p>1</p>
         </Item>
