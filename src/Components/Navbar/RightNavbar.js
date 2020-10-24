@@ -53,6 +53,9 @@ const UI = styled.ul`
     transition: transform 0.3s ease-in;
     align-items: center;
 
+	p {
+	}
+
     li:hover {
       background-color: #6c63ff;
       color: white;
@@ -106,7 +109,6 @@ useEffect(() => {
         <NavLink to="/">
           <GithubIcon size={"1.2rem"} />
 		  {renderMenuItem("Github")}
-
         </NavLink>
       </li>
 

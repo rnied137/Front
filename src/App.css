@@ -4,6 +4,12 @@
   font-size: 20px;
 }
 
+
+.root {
+
+  --primary-color: #ff6584;
+  --secondary-color:#6c63ff;
+}
 .App {
   text-align: center;
 }

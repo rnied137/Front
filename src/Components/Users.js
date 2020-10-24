@@ -1,89 +1,95 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
+
+import { TextField, Button } from "@material-ui/core";
+
+import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+
+import COLORS from "../colors";
 
 const StyledForm = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
 
-	label {
-		input {
-			height: 36px;
-			border: 2px solid #6c63ff;
-			border-radius: 5px;
-			color: #6c63ff;
-			background-color: transparent;
-		}
-	}
+  form {
+    display: flex;
 
-	.elements {
-		display: flex;
-	}
-	.element {
-        padding: 20px;
-        line-height:1.5;
-	}
+    Button {
+      background: ${COLORS.primary};
+    }
+  }
+
+  .elements {
+    display: flex;
+  }
+  .element {
+    padding: 20px;
+    line-height: 1.5;
+  }
 `;
 
 const UsersArray = [
-	{
-		name: 'radek',
-		avatar: 'test',
-		password: 'pass'
-	},
-	{
-		name: 'julek',
-		avatar: 'test2',
-		password: '12345'
-	}
+  {
+    name: "radek",
+    avatar: "test",
+    password: "pass",
+  },
+  {
+    name: "julek",
+    avatar: "test2",
+    password: "12345",
+  },
 ];
 
 const Users = () => {
-	const [ name, setName ] = useState('Username');
-	const [ users, setUsers ] = useState(UsersArray);
-	console.log(users);
+  const [name, setName] = useState("Username");
+  const [users, setUsers] = useState(UsersArray);
+  console.log(users);
 
-	const returnUsers = (event) => {
-		event.preventDefault();
-		console.log('got x users');
-		const test = {
-			name: '1',
-			avatar: '2',
-			password: '3'
-		};
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: "#6c63ff",
+      },
+      secondary: {
+        main: "#ff6584",
+      },
+    },
+  });
 
-		setUsers(users.concat(test));
-	};
+  const returnUsers = (event) => {
+    event.preventDefault();
+    console.log("got x users");
+    const test = {
+      name: "1",
+      avatar: "2",
+      password: "3",
+    };
 
-	const setSearchUserName = (event) => {
-		setName(event.target.value);
-		console.log(name);
-	};
+    setUsers(users.concat(test));
+  };
 
-	return (
-		<React.Fragment>
-			<StyledForm>
-				<form>
-					<label>
-						Username:
-						<input type="text" onChange={setSearchUserName} />
-					</label>
+  const setSearchUserName = (event) => {
+    setName(event.target.value);
+    console.log(name);
+  };
 
-					<input type="submit" value="Wyszukaj" onClick={returnUsers} />
-				</form>
-                <hr/>
-				<div className="elements">
-					{users.map((element) => (
-						<div className="element">
-							<p>{element.name}</p>
-							<p>{element.avatar}</p>
-						</div>
-					))}
-				</div>
-			</StyledForm>
-		</React.Fragment>
-	);
+  return (
+    <React.Fragment>
+      <StyledForm>
+        <form>
+          <MuiThemeProvider theme={theme}>
+            <TextField id="filled-basic" variant="filled" label="Username" />
+            <Button variant="contained" color="primary">
+              Search
+            </Button>
+          </MuiThemeProvider>
+        </form>
+      </StyledForm>
+    </React.Fragment>
+  );
 };
 
 export default Users;
