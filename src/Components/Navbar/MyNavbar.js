@@ -16,6 +16,10 @@ const Nav = styled.nav`
 	background-color: #6c63ff;
 	letter-spacing: 1px;
 
+
+	Burger {
+		align-self:center;
+	}
 	.logo {
 		padding: 15px 0;
 		color: white;
@@ -31,10 +35,12 @@ const Nav = styled.nav`
 		color: white;
 		text-decoration: none;
 		font-size: 18px;
+		width:100%;
   }
   
   .menu-buttons {
-    margin-right:12%;
+	margin-right:12%;
+	
   }
 `;
 

@@ -51,18 +51,22 @@ const UI = styled.ul`
     width: 300px;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in;
-    align-items: center;
+	align-items: center;
+	z-index: 3;
 
 	p {
 	}
+
+
 
     li:hover {
       background-color: #6c63ff;
       color: white;
       text-decoration: none;
-      padding: 6% 38%;
-      width: 100%;
+	  width: 100%;
+	  
       a:hover {
+		  width:100%auto;
       }
     }
   }
