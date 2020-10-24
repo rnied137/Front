@@ -1,28 +1,10 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import Item from "./Grid/Item";
 
 const colors = ["blue", "pink", "teal", "red", "#ff6584", "#6C63FF"];
 
-export const Item = styled.div`
-  display: flex;
-  justify-content: center;
-  padding: 0.5rem;
 
-  ${({ color = colors[Math.floor(Math.random() * (colors.length - 0)) + 0] }) =>
-    css`
-      background-color: ${color};
-      border: 5px solid ${color};
-      border-radius: 10px;
-      color: ${color};
-
-    `}
-    ${({ fontColor = colors[Math.floor(Math.random() * (colors.length - 0)) + 0] }) =>
-    css`
-     
-      color: ${fontColor};
-
-    `}
-`;
 
 export const Grid = styled.div`
   display: grid;
@@ -31,18 +13,22 @@ export const Grid = styled.div`
   grid-gap: 10px;
 `;
 
+const Image = () => {
+  return <img src="/image.svg" alt="text"/>
+}
+
 const Products = () => {
   return (
     <div>
       To jest strona z produktami
       <Grid>
-        <Item>
-          <p>1</p>
+        <Item primary={"#fdfdfd"}>
+<Image/>
         </Item>
-        <Item>
+        <Item primary={"#fdfdfd"}>
           <p>2</p>
         </Item>
-        <Item>23</Item>
+        <Item primary={"#fdfdfd"}>23</Item>
         <Item>76</Item>
         <Item>
           <p>3</p>

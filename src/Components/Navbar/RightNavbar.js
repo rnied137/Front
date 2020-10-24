@@ -1,22 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
 
+import { FaGithubAlt as GithubIcon } from "react-icons/fa";
+import { FaTwitterSquare as TwitterIcon } from "react-icons/fa";
+import { FaShoppingCart as ShoppingCartIcon } from "react-icons/fa";
+import { FaUser as UserIcon } from "react-icons/fa";
+import { FaComment as ChatIcon } from "react-icons/fa";
+import { FaClipboardCheck as DotsIcon } from "react-icons/fa";
 
 const UI = styled.ul`
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: space-around;
-  width:60vw;
-  
+  justify-content: flex-end;
+  width: 80%;
 
   li {
-    padding: 20px 10px;
+    padding: 25px 10px;
     font-size: 20px;
+    border-radius: 10px;
+
+    a {
+      padding: 15px 10px;
+    }
+
+    a:hover {
+      padding: 15px 10px;
+    }
+  }
+
+  li:hover {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid white;
+    border-radius: 0px;
   }
 
   @media (max-width: 768px) {
@@ -30,38 +51,81 @@ const UI = styled.ul`
     width: 300px;
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in;
+    align-items: center;
 
     li:hover {
-      background-color: #6C63FF;
+      background-color: #6c63ff;
       color: white;
       text-decoration: none;
+      padding: 6% 38%;
+      width: 100%;
+      a:hover {
+      }
     }
   }
 `;
 
-
 export const RightNavbar = (props) => {
+  const [open, setOpen] = useState(props.open);
+
+useEffect(() => {
+	setOpen(props.open);
+
+}, [props.open])
+
+  const renderMenuItem = (menuLabel) => {
+	console.log("dupa" + open);
+    if (open) return <p>{menuLabel}</p>;
+    else return null;
+  
+  };
   return (
     <UI open={props.open}>
       <li>
-        <NavLink to="/products">Products</NavLink>
+        <NavLink to="/products">
+          <DotsIcon size={"1.2rem"} />
+          {renderMenuItem("Produkty")}
+        </NavLink>
       </li>
 
       <li>
-        <NavLink to="/shoppingCart">ShoppingCart</NavLink>
+        <NavLink to="/shoppingCart">
+          <ShoppingCartIcon size={"1.2rem"} />
+          {renderMenuItem("Cart")}
+        </NavLink>
       </li>
 
       <li>
-        <NavLink to="/about">About</NavLink>
+        <NavLink to="/about">
+          <ChatIcon size={"1.2rem"} />
+		  {renderMenuItem("Messages")}
+        </NavLink>
       </li>
 
       <li>
-        <NavLink to="/">Users</NavLink>
+        <NavLink to="/">
+          <GithubIcon size={"1.2rem"} />
+		  {renderMenuItem("Github")}
+
+        </NavLink>
       </li>
 
       <li>
-        <NavLink to="/">Users</NavLink>
+        <NavLink to="/">
+          <TwitterIcon size={"1.2rem"} />
+		  {renderMenuItem("Twitter")}
+
+        </NavLink>
       </li>
+
+      <li>
+        <NavLink to="/users">
+          <UserIcon size={"1.2rem"} />
+		  {renderMenuItem("Users")}
+
+        </NavLink>
+      </li>
+
       {props.children}
     </UI>
   );
