@@ -17,9 +17,7 @@ const Nav = styled.nav`
 	letter-spacing: 1px;
 
 
-	Burger {
-		align-self:center;
-	}
+
 	.logo {
 		padding: 15px 0;
 		color: white;
@@ -28,7 +26,6 @@ const Nav = styled.nav`
 	}
 
 	li {
-		padding: 18px 10px;
 	}
 
 	li a {

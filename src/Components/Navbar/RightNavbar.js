@@ -34,6 +34,8 @@ const UI = styled.ul`
   }
 
   li:hover {
+    padding: 25px 10px;
+
     color: white;
     text-decoration: none;
     border-bottom: 1px solid white;

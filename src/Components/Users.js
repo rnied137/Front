@@ -9,6 +9,7 @@ import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import Skeleton from "@material-ui/lab/Skeleton";
 
 import COLORS from "../colors";
 
@@ -37,9 +38,8 @@ const StyledForm = styled.div`
       background: ${COLORS.primary};
     }
 
-
-      TextField{
-        min-width: 150px;
+    TextField {
+      min-width: 150px;
     }
 
     .text-field {
@@ -111,6 +111,7 @@ const Users = () => {
   const [name, setName] = useState("Username");
   const [users, setUsers] = useState(UsersArray);
   const [showedUsers, setShowedUsers] = useState(UsersArray);
+  const [loading, setLoading] = useState(true);
   const anchorRef = React.useRef(null);
   console.log(users);
 
@@ -125,6 +126,22 @@ const Users = () => {
     },
   });
 
+  const filterUsers = (event) => {
+    const tab = [];
+    const searchUser = event.currentTarget.value;
+    if (searchUser === null || searchUser === "") setShowedUsers(users);
+    else {
+      showedUsers.filter((user) => {
+        if (user.name.includes(searchUser)) tab.push(user);
+      });
+      setShowedUsers(tab);
+    }
+  };
+
+  React.useEffect(() => {
+    setLoading(false);
+  }, []);
+
   return (
     <React.Fragment>
       <StyledForm>
@@ -132,29 +149,30 @@ const Users = () => {
           <Grid item xs={12} justify="center" alignItems="center">
             <form>
               <MuiThemeProvider theme={theme}>
-              
-
                 <ButtonGroup
                   variant="contained"
                   color="primary"
                   ref={anchorRef}
                   aria-label="split button"
                 >
-                    <Autocomplete
-                id="free-solo-demo"
-                disableClearable
-                freeSolo
-                options={users.map((option)=> option.name)}
-                renderInput={(params) =>(
-                <TextField {...params}
-                className="text-field"  
-                id="filled-basic"
-                  variant="filled"
-                  label="Search.."
-                  InputProps={{...params.InputProps, type:'search'}}
-                  autoComplete="true"
-                />)}
-                />
+                  <Autocomplete
+                    id="free-solo-demo"
+                    disableClearable
+                    freeSolo
+                    options={users.map((option) => option.name)}
+                    renderInput={(params) => (
+                      <TextField
+                        onChange={filterUsers}
+                        {...params}
+                        className="text-field"
+                        id="filled-basic"
+                        variant="filled"
+                        label="Search term.."
+                        InputProps={{ ...params.InputProps, type: "search" }}
+                        autoComplete="true"
+                      />
+                    )}
+                  />
                   <Button variant="contained" color="primary">
                     Search
                   </Button>
@@ -173,7 +191,7 @@ const Users = () => {
               </MuiThemeProvider>
             </form>
           </Grid>
-          {users.map((user) => {
+          {showedUsers.map((user) => {
             return (
               <Grid item xs={4}>
                 {" "}
