@@ -3,3 +3,4 @@
     secondary:'#6c63ff',
 };
 
+export default COLORS;

@@ -11,6 +11,8 @@ import { FaUser as UserIcon } from "react-icons/fa";
 import { FaComment as ChatIcon } from "react-icons/fa";
 import { FaClipboardCheck as DotsIcon } from "react-icons/fa";
 
+import {RiKeyFill as RegisterIcon} from "react-icons/ri";
+
 const UI = styled.ul`
   list-style: none;
   display: flex;
@@ -133,6 +135,17 @@ useEffect(() => {
 
         </NavLink>
       </li>
+
+      <li>
+        <NavLink to="/register">
+          <RegisterIcon size={"1.2rem"} />
+		  {renderMenuItem("Register")}
+
+        </NavLink>
+      </li>
+
+
+
 
       {props.children}
     </UI>

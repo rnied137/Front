@@ -11,6 +11,7 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Products from "./Components/Products";
 import NotFound from "./Components/NotFound";
+import Register from "./Components/Register";
 import { ShoppingCart } from "./Components/ShoppingCart";
 import Users from "./Components/Users";
 
@@ -26,7 +27,10 @@ function App() {
           <Route exact path="/shoppingCart" component={ShoppingCart} />
           <Route exact path="/" component={Test} />
           <Route exact path="/users" component={Users} />
-           <Route path="*" component={NotFound} />1
+          <Route path="/register" component={Register} />
+
+           <Route path="*" component={NotFound} />
+           
         </Switch>
       </div>
     </Router>

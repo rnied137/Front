@@ -108,12 +108,11 @@ const UsersArray = [
 ];
 
 const Users = () => {
-  const [name, setName] = useState("Username");
-  const [users, setUsers] = useState(UsersArray);
+  const [selected, setSelected] = useState("");
+  const [allUsers, setAllUsers] = useState(UsersArray);
   const [showedUsers, setShowedUsers] = useState(UsersArray);
   const [loading, setLoading] = useState(true);
   const anchorRef = React.useRef(null);
-  console.log(users);
 
   const theme = createMuiTheme({
     palette: {
@@ -126,21 +125,24 @@ const Users = () => {
     },
   });
 
-  const filterUsers = (event) => {
-    const tab = [];
-    const searchUser = event.currentTarget.value;
-    if (searchUser === null || searchUser === "") setShowedUsers(users);
-    else {
-      showedUsers.filter((user) => {
-        if (user.name.includes(searchUser)) tab.push(user);
-      });
-      setShowedUsers(tab);
-    }
+  const filterUsers = (event, value) => {
+
+      const foundUsers = [];
+      const searchUser = event.target.value;
+      console.log(searchUser);
+      if (searchUser === null || searchUser === "") setShowedUsers(allUsers);
+      else {
+        showedUsers.filter((user) => {
+          if (user.name.includes(searchUser)) foundUsers.push(user);
+        });
+        setShowedUsers(foundUsers);
+      } 
   };
 
   React.useEffect(() => {
     setLoading(false);
   }, []);
+
 
   return (
     <React.Fragment>
@@ -158,8 +160,7 @@ const Users = () => {
                   <Autocomplete
                     id="free-solo-demo"
                     disableClearable
-                    freeSolo
-                    options={users.map((option) => option.name)}
+                    options={allUsers.map((option) => option.name)}
                     renderInput={(params) => (
                       <TextField
                         onChange={filterUsers}
