@@ -14,6 +14,7 @@ import NotFound from "./Components/NotFound";
 import Register from "./Components/Register";
 import { ShoppingCart } from "./Components/ShoppingCart";
 import Users from "./Components/Users";
+import { allReducers} from './redux/reducers'
 
 function App() {
   return (

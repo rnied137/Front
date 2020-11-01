@@ -78,6 +78,7 @@ const UI = styled.ul`
 
 export const RightNavbar = (props) => {
   const [open, setOpen] = useState(props.open);
+  const [userLogged, setUserLogged] = useState('');
 
 useEffect(() => {
 	setOpen(props.open);
