@@ -1,0 +1,54 @@
+.title {
+font-weight:500;
+font-size: 1.2rem;
+margin-bottom: 2rem;
+}
+
+.subtitle {
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    color: white;
+background-color: gray;
+padding:.75rem 1.5rem;
+text-decoration: none;
+font-size: .9rem;
+}
+
+.home-main-section{
+display: flex;
+align-items: stretch;
+justify-content: space-between;
+flex-grow: 1;
+}
+
+
+.home-main-section .img-wrapper{
+   flex-grow: 1;
+   flex-direction: column;
+   display: flex;
+   align-items: stretch;
+   justify-content: flex-end; 
+}
+
+.home-main-section .lady-image{
+    background-image: url(https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/subscribe_vspl.svg);
+    flex-grow: 1;
+    max-height: 70vh;
+    min-width: 30vw;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+}
+
+
+.home-main-section .call-to-action{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+    align-self: center;
+}
